@@ -1,0 +1,153 @@
+﻿<link rel="stylesheet" href="style.css">
+
+<table style="border-collapse: collapse;border: 0px;" border="1">
+    <tbody>
+        <tr>
+            <td class="edit-area" colspan="8">Champs Modifiables</td> 
+            <td class="noborder"></td>
+            <td class="reseau-area" colspan="8">Bits du réseau - S/R</td> 
+            <td class="noborder"></td>
+            <td class="hote-area" colspan="8">Bits d'hôte</td> 
+        </tr>
+        <tr>
+            <td class="noborder blank-cell" colspan="38"></td> 
+        </tr>
+        <tr>
+            <td class="noborder" colspan="3"></td> 
+            <td colspan="35" style="text-align: center;">Adresse IP (en Binaire)</td> 
+        </tr>
+        <tr class="bit">
+            <td class="noborder" colspan="3"></td> 
+            <td class="bit-reseau" id="bit1">1</td>
+            <td class="bit-reseau" id="bit2">2</td>
+            <td class="bit-reseau" id="bit3">3</td>
+            <td class="bit-reseau" id="bit4">4</td>
+            <td class="bit-reseau" id="bit5">5</td>
+            <td class="bit-reseau" id="bit6">6</td>
+            <td class="bit-reseau" id="bit7">7</td>
+            <td class="bit-reseau" id="bit8">8</td>
+            <td class="noborder"></td>
+            <td class="bit-reseau" id="bit9">9</td>
+            <td class="bit-reseau" id="bit10">10</td>
+            <td class="bit-reseau" id="bit11">11</td>
+            <td class="bit-reseau" id="bit12">12</td>
+            <td class="bit-reseau" id="bit13">13</td>
+            <td class="bit-reseau" id="bit14">14</td>
+            <td class="bit-reseau" id="bit15">15</td>
+            <td class="bit-reseau" id="bit16">16</td>
+            <td class="noborder"></td>
+            <td class="bit-reseau" id="bit17">17</td>
+            <td class="bit-reseau" id="bit18">18</td>
+            <td class="bit-hote" id="bit19">19</td>
+            <td class="bit-hote" id="bit20">20</td>
+            <td class="bit-hote" id="bit21">21</td>
+            <td class="bit-hote" id="bit22">22</td>
+            <td class="bit-hote" id="bit23">23</td>
+            <td class="bit-hote" id="bit24">24</td>
+            <td class="noborder"></td>
+            <td class="bit-hote" id="bit25">25</td>
+            <td class="bit-hote" id="bit26">26</td>
+            <td class="bit-hote" id="bit27">27</td>
+            <td class="bit-hote" id="bit28">28</td>
+            <td class="bit-hote" id="bit29">29</td>
+            <td class="bit-hote" id="bit30">30</td>
+            <td class="bit-hote" id="bit31">31</td>
+            <td class="bit-hote" id="bit32">32</td>
+        </tr>
+        <tr class="octet">
+            <td class="noborder" colspan="3"></td> 
+            <td>128</td>
+            <td>64</td>
+            <td>32</td>
+            <td>16</td>
+            <td>8</td>
+            <td>4</td>
+            <td>2</td>
+            <td>1</td>
+            <td class="noborder">.</td>
+            <td>128</td>
+            <td>64</td>
+            <td>32</td>
+            <td>16</td>
+            <td>8</td>
+            <td>4</td>
+            <td>2</td>
+            <td>1</td>
+            <td class="noborder">.</td>
+            <td>128</td>
+            <td>64</td>
+            <td>32</td>
+            <td>16</td>
+            <td>8</td>
+            <td>4</td>
+            <td>2</td>
+            <td>1</td>
+            <td class="noborder">.</td>
+            <td>128</td>
+            <td>64</td>
+            <td>32</td>
+            <td>16</td>
+            <td>8</td>
+            <td>4</td>
+            <td>2</td>
+            <td>1</td>
+        </tr>
+        <tr class="bit-octet">
+            <td class="desc-bit-octet">Masque de sous réseau</td> 
+            <td><input type="number" id="masque" name="masque" value="18" min="1" max="31"></td> 
+            <td class="noborder"></td> 
+            <td class="border-right"><input type="number" id="bit1-octet1" name="bit1-octet1" value="1" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit2-octet1" name="bit2-octet1" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit3-octet1" name="bit3-octet1" value="0" min="0" max="1"></td>
+            <td class="border-left"><input type="number" id="bit4-octet1" name="bit4-octet1" value="0" min="0" max="1"></td>
+            <td class="border-right"><input type="number" id="bit5-octet1" name="bit5-octet1" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit6-octet1" name="bit6-octet1" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit7-octet1" name="bit7-octet1" value="0" min="0" max="1"></td>
+            <td class="border-left"><input type="number" id="bit8-octet1" name="bit8-octet1" value="0" min="0" max="1"></td>
+            <td class="noborder">.</td>
+            <td class="border-right"><input type="number" id="bit1-octet2" name="bit1-octet2" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit2-octet2" name="bit2-octet2" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit3-octet2" name="bit3-octet2" value="0" min="0" max="1"></td>
+            <td class="border-left"><input type="number" id="bit4-octet2" name="bit4-octet2" value="0" min="0" max="1"></td>
+            <td class="border-right"><input type="number" id="bit5-octet2" name="bit5-octet2" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit6-octet2" name="bit6-octet2" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit7-octet2" name="bit7-octet2" value="0" min="0" max="1"></td>
+            <td class="border-left"><input type="number" id="bit8-octet2" name="bit8-octet2" value="0" min="0" max="1"></td>
+            <td class="noborder">.</td>
+            <td class="border-right"><input type="number" id="bit1-octet3" name="bit1-octet3" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit2-octet3" name="bit2-octet3" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit3-octet3" name="bit3-octet3" value="0" min="0" max="1"></td>
+            <td class="border-left"><input type="number" id="bit4-octet3" name="bit4-octet3" value="0" min="0" max="1"></td>
+            <td class="border-right"><input type="number" id="bit5-octet3" name="bit5-octet3" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit6-octet3" name="bit6-octet3" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit7-octet3" name="bit7-octet3" value="0" min="0" max="1"></td>
+            <td class="border-left"><input type="number" id="bit8-octet3" name="bit8-octet3" value="0" min="0" max="1"></td>
+            <td class="noborder">.</td>
+            <td class="border-right"><input type="number" id="bit1-octet4" name="bit1-octet4" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit2-octet4" name="bit2-octet4" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit3-octet4" name="bit3-octet4" value="0" min="0" max="1"></td>
+            <td class="border-left"><input type="number" id="bit4-octet4" name="bit4-octet4" value="0" min="0" max="1"></td>
+            <td class="border-right"><input type="number" id="bit5-octet4" name="bit5-octet4" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit6-octet4" name="bit6-octet4" value="0" min="0" max="1"></td>
+            <td class="border-right-left"><input type="number" id="bit7-octet4" name="bit7-octet4" value="0" min="0" max="1"></td>
+            <td class="border-left"><input type="number" id="bit8-octet4" name="bit8-octet4" value="0" min="0" max="1"></td>
+        </tr>
+        <tr>
+            <td class="noborder blank-cell" colspan="38"></td> 
+        </tr>
+        <tr class="eq-dec">
+            <td colspan="2">Equivalent en décimale</td> 
+            <td class="noborder"></td>
+            <td class="edit-area" colspan="8"><input type="number" id="octet1-eq-dec" name="octet1-eq-dec" value="128" min="0" max="255"></td> 
+            <td class="noborder point">.</td>
+            <td class="edit-area" colspan="8"><input type="number" id="octet2-eq-dec" name="octet2-eq-dec" value="0" min="0" max="255"></td> 
+            <td class="noborder point">.</td>
+            <td class="edit-area" colspan="8"><input type="number" id="octet3-eq-dec" name="octet3-eq-dec" value="0" min="0" max="255"></td> 
+            <td class="noborder point">.</td>
+            <td class="edit-area" colspan="8"><input type="number" id="octet4-eq-dec" name="octet4-eq-dec" value="0" min="0" max="255"></td> 
+        </tr>
+    </tbody>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="script.js"></script>

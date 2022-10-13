@@ -1,0 +1,120 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+td {
+    border: solid 1px #000;
+    padding: 4px;
+    text-align: center;
+}
+
+table {
+    border: solid 1px #000;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+
+.bit, .octet, .bit-octet > td {
+    min-width: 20px;
+    max-width: 20px;
+}
+
+.noborder {
+    border: none;
+}
+
+.bit-reseau {
+    background-color: #366092;
+    color: #fff;
+}
+
+.bit-hote {
+    background-color: #ffc000;
+    color: #000;
+}
+
+.octet > td {
+    font-weight: bold;
+}
+
+.octet .noborder {
+    font-weight: normal;
+}
+
+.bit-octet input {
+    width: 100%;
+    text-align: center;
+    background-color: #bfbfbf;
+    border: none;
+    outline: none;
+}
+
+.bit-octet > td {
+    background-color: #bfbfbf;
+}
+
+.bit-octet input:hover {
+    border: none;
+    outline: none;
+}
+
+.bit-octet > .noborder {
+    background-color: #fff;
+}
+
+.bit-octet > .desc-bit-octet {
+    background-color: #fff;
+    white-space: nowrap;
+    max-width: max-content;
+}
+
+.border-left {
+    border-left: none;
+}
+
+.border-right {
+    border-right: none;
+}
+
+.border-right-left {
+    border-left: none;
+    border-right: none;
+}
+
+.blank-cell {
+    height: 18px;
+}
+
+.edit-area {
+    background-color: #bfbfbf;
+}
+
+.reseau-area {
+    background-color: #366092;
+    color: #fff;
+}
+
+.hote-area {
+    background-color: #ffc000;
+}
+
+.point {
+    font-weight: 800;
+}
+
+.eq-dec input {
+    width: 100%;
+    text-align: center;
+    background-color: #bfbfbf;
+    border: none;
+    outline: none;
+}
