@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    // Event if change value mask arrow & key
     $("#masque").on("input", function () {
       if (!$(this).val()) $(this).val(1);
       else if ($(this).val() <= 1) $(this).val(1);
@@ -16,6 +18,8 @@ $(document).ready(function () {
       }
     });
   
+
+    // Loop for all bits
     let octet = 1,
       bit = 1;
     for (let i = 1; i <= 32; i++) {
@@ -32,13 +36,15 @@ $(document).ready(function () {
         bit = i - 24;
         octet = 4;
       }
-  
+
+      // Event if change value bit with arrow
       $("#bit" + bit + "-octet" + octet).on("input", function () {
         if (!$(this).val()) $(this).val(0);
         else if ($(this).val() <= 0) $(this).val(0);
         else $(this).val(1);
       });
   
+      // Event if change value bit with key
       $("#bit" + bit + "-octet" + octet).on("change", function () {
         bit = parseInt($(this).attr("name").split("")[3]);
         octet = parseInt($(this).attr("name").split("")[10]);
@@ -56,5 +62,7 @@ $(document).ready(function () {
           );
       });
     }
+
+
   });
   
