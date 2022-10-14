@@ -92,15 +92,16 @@ $(document).ready(function () {
         let valueInputEqDescToBin = parseInt($(this).val()).toString(2),
           lengthValueBin = valueInputEqDescToBin.length;
 
-        for (let i = parseInt(lengthValueBin); i <=8; i++ ) valueInputEqDescToBin = "0" + valueInputEqDescToBin.toString();
+        for (let i = parseInt(lengthValueBin); i <=8; i++ ) {valueInputEqDescToBin = "0" + valueInputEqDescToBin.toString();}
 
         for (let i = 0; i<=8; i++) {
           const numBin = String(valueInputEqDescToBin)[i];
           $("#bit" + i + "-octet" + countCurrentOctet).val(parseInt(numBin));
           const bitNum = (countCurrentOctet - 1) * 8 + i + 1;
-          if ($("#bit" + bitNum).attr("class") == "bit-reseau") {
-            $("#net-bit" + i + 1 + "-octet" + countCurrentOctet).html(parseInt(numBin));
-          }
+          if ($("#bit" + (bitNum - 1) ).attr("class") == "bit-reseau") {
+            $("#net-bit" + i + "-octet" + countCurrentOctet).html(numBin)
+          }            
+
         }
         
       });

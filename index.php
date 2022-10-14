@@ -51,6 +51,7 @@
         <tr class="octet">
           <?php 
           $countOctets = 0;
+          $numOct = 1;
           $valueOctet = 128 * 2;
             for ($i = 1; $i <= 36; $i++) {
               if ($i==1) {
@@ -60,9 +61,17 @@
                 echo "          <td class=\"noborder\">.</td>\n";
               } else {
                 $valueOctet = $valueOctet/2;
-                echo "          <td>" . $valueOctet . "</td>\n";
-                if ($valueOctet == 1) $valueOctet = 128 * 2;
-                else $countOctets++;
+                echo "          <td id=\"bit-dec-" . $countOctets . "-octet" . $numOct . "\">" . $valueOctet . "</td>\n";
+                $countBits++;
+                if ($valueOctet == 1) {
+                    $valueOctet = 128 * 2;
+                    $numOct++;
+                    $countOctets = 1;
+                } else {
+                    $countOctets++;
+                }
+
+
               }
             } ?>
         </tr>
