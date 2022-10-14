@@ -105,7 +105,7 @@
         <tr>
           <td class="noborder blank-cell" colspan="38"></td> 
         </tr>
-        <!-- Blank row -->
+        <!-- Decimal eq -->
         <tr class="eq-dec">
           <td colspan="2">Equivalent en décimale</td> 
           <td class="noborder"></td>
@@ -116,6 +116,10 @@
           <td class="edit-area" colspan="8"><input type="number" id="octet3-eq-dec" name="octet3-eq-dec" value="0" min="0" max="255"></td> 
           <td class="noborder point">.</td>
           <td class="edit-area" colspan="8"><input type="number" id="octet4-eq-dec" name="octet4-eq-dec" value="0" min="0" max="255"></td> 
+        </tr>
+        <!-- Blank row -->
+        <tr>
+          <td class="noborder blank-cell" colspan="38"></td> 
         </tr>
       </tbody>
     </table>
