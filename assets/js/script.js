@@ -63,6 +63,27 @@ $(document).ready(function () {
       });
     }
 
+    // Loop for decimal input
+    for (let i = 1; i<=4; i++) {
+     
+      // Event if change value decimal input
+      $("#octet" + i + "-eq-dec").on("input", function () {
+        let countCurrentOctet = i;
+
+        let valueInputEqDescToBin = parseInt($(this).val()).toString(2),
+          lengthValueBin = valueInputEqDescToBin.length;
+
+        for (let i = parseInt(lengthValueBin); i <=8; i++ ) valueInputEqDescToBin = "0" + valueInputEqDescToBin.toString();
+
+        for (let i = 0; i<=8; i++) {
+          const numBin = String(valueInputEqDescToBin)[i];
+          const bitPos = i
+          $("#bit" + bitPos + "-octet" + countCurrentOctet).val(parseInt(numBin))
+        }
+
+      });
+
+    }
 
   });
   
