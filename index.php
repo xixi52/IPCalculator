@@ -76,7 +76,7 @@
           $bitInputVal = 1;
             for ($i = 1; $i <= 38; $i++) {
               if ($i == 1) {
-                echo "<td class=\"desc-bit-octet\">Masque de sous réseau</td> \n";
+                echo "<td class=\"desc-bit-octet\">Masque de sous réseau</td>\n";
               } else if ($i == 2) {
                 echo "<td><input type=\"number\" id=\"masque\" name=\"masque\" value=\"18\" min=\"1\" max=\"31\"></td>\n";
                 $bitNumber++;
@@ -120,6 +120,51 @@
         <!-- Blank row -->
         <tr>
           <td class="noborder blank-cell" colspan="38"></td> 
+        </tr>
+        <!-- Network -->
+        <tr class="eq-dec">
+          <td colspan="2">Adresse Réseau</td> 
+          <td class="noborder"></td>
+          <td colspan="8" id="octet1-network">128</td> 
+          <td class="noborder point">.</td>
+          <td colspan="8" id="octet2-network">0</td> 
+          <td class="noborder point">.</td>
+          <td colspan="8" id="octet3-network">0</td> 
+          <td class="noborder point">.</td>
+          <td colspan="8" id="octet4-network">0</td> 
+        </tr>
+        <!-- Network bits list -->
+        <tr class="bit-network">
+          <?php 
+          $leftBorderBit = "";
+          $rightBorderBit = "";
+          $bitNumber = 0;
+          $octetNumber = 1;
+          $bitInputVal = 1;
+            for ($i = 1; $i <= 36; $i++) {
+              if ($i == 1) {
+                $bitNumber++;
+                echo "<td class=\"noborder\" colspan=\"3\"></td>\n";
+              } else if ($i == 10 || $i == 19 || $i == 28) {
+                echo "          <td class=\"noborder\"></td>\n";
+              } else {
+                if ($bitNumber != 4 && $bitNumber != 8) $rightBorderBit = "-right";
+                else $rightBorderBit = "";
+
+                if ($bitNumber != 1 && $bitNumber != 5) $leftBorderBit = "-left";
+                else $leftBorderBit = "";
+
+                if($bitNumber == 8) {
+                  echo "          <td class=\"border" . $rightBorderBit . $leftBorderBit . "\" id=\"net-bit" . $bitNumber . "-octet" . $octetNumber . "\">" . $bitInputVal . "</td>\n";
+                  $bitNumber = 1;
+                  $octetNumber++;
+                } else {
+                  echo "          <td class=\"border" . $rightBorderBit . $leftBorderBit . "\" id=\"net-bit" . $bitNumber . "-octet" . $octetNumber . "\">" . $bitInputVal . "</td>\n";
+                  $bitNumber++;
+                  $bitInputVal = 0;
+                }
+              }
+            } ?>
         </tr>
       </tbody>
     </table>

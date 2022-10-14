@@ -50,16 +50,31 @@ $(document).ready(function () {
         octet = parseInt($(this).attr("name").split("")[10]);
   
         const valueBit = bit == 8 ? 1 : 2 ** Math.abs(bit - 8),
-          octetValue = $("#octet" + octet + "-eq-dec").val();
+          octetValue = $("#octet" + octet + "-eq-dec").val(),
+          octetNetworkValue = $("#octet" + octet + "-network").html(),
+          bitsPos = (octet - 1) * 8 + bit;
   
-        if ($(this).val() == 1)
+        if ($(this).val() == 1) {
           $("#octet" + octet + "-eq-dec").val(
             parseInt(octetValue) + parseInt(valueBit)
           );
-        else
+          if ($("#bit" + bitsPos).attr("class") == "bit-reseau") {
+            $("#net-bit" + bit + "-octet" + octet).html("1");
+            $("#octet" + octet + "-network").html(
+              parseInt(octetNetworkValue) + parseInt(valueBit)
+            );
+          }
+        } else {
           $("#octet" + octet + "-eq-dec").val(
             parseInt(octetValue) - parseInt(valueBit)
           );
+          if ($("#bit" + bitsPos).attr("class") == "bit-reseau") {
+            $("#net-bit" + bit + "-octet" + octet).html("0");
+            $("#octet" + octet + "-network").html(
+              parseInt(octetNetworkValue) - parseInt(valueBit)
+            );
+          }
+        }
       });
     }
 
@@ -68,6 +83,10 @@ $(document).ready(function () {
      
       // Event if change value decimal input
       $("#octet" + i + "-eq-dec").on("input", function () {
+        if (!$(this).val()) $(this).val(0);
+        else if ($(this).val() <= 0) $(this).val(0);
+        else if ($(this).val() >= 255) $(this).val(255);
+        
         let countCurrentOctet = i;
 
         let valueInputEqDescToBin = parseInt($(this).val()).toString(2),
@@ -77,10 +96,13 @@ $(document).ready(function () {
 
         for (let i = 0; i<=8; i++) {
           const numBin = String(valueInputEqDescToBin)[i];
-          const bitPos = i
-          $("#bit" + bitPos + "-octet" + countCurrentOctet).val(parseInt(numBin))
+          $("#bit" + i + "-octet" + countCurrentOctet).val(parseInt(numBin));
+          const bitNum = (countCurrentOctet - 1) * 8 + i + 1;
+          if ($("#bit" + bitNum).attr("class") == "bit-reseau") {
+            $("#net-bit" + i + 1 + "-octet" + countCurrentOctet).html(parseInt(numBin));
+          }
         }
-
+        
       });
 
     }
