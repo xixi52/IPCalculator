@@ -1,2 +1,5 @@
 # IPCalculator
-A cool IP calculator online in JS
+Ce calculateur est un outil pédagogique reprenant l'outil Excel de Stéphane Menoud, mais cette fois sur le Web.
+
+
+🍻 Un grand merci à Stéphane Menoud pour cet outils et à Frédéric Leroux pour son enseignement et son partage!
