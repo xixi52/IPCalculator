@@ -90,7 +90,8 @@
                 echo "<td><input type=\"number\" id=\"masque\" name=\"masque\" value=\"18\" min=\"1\" max=\"31\"></td>\n";
                 $bitNumber++;
               } else if ($i == 3 || $i == 12 || $i == 21 || $i == 30) {
-                echo "          <td class=\"noborder\"></td>\n";
+                if ($i == 3) echo "          <td class=\"noborder\"></td>\n";
+                else  echo "          <td class=\"noborder\">.</td>\n";
               } else {
                 if ($bitNumber != 4 && $bitNumber != 8) $rightBorderBit = "-right";
                 else $rightBorderBit = "";
@@ -155,7 +156,7 @@
                 $bitNumber++;
                 echo "<td class=\"noborder\" colspan=\"3\"></td>\n";
               } else if ($i == 10 || $i == 19 || $i == 28) {
-                echo "          <td class=\"noborder\"></td>\n";
+                echo "          <td class=\"noborder\">.</td>\n";
               } else {
                 if ($bitNumber != 4 && $bitNumber != 8) $rightBorderBit = "-right";
                 else $rightBorderBit = "";
