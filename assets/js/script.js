@@ -32,6 +32,8 @@ $(document).ready(function () {
 
       let maskNetBin = octNet[i].toString(2);
       $("#octet" + (i + 1) + "-network").html(octNet[i]);
+      if (i + 1 == 4) $("#octet4-first").html(octNet[i] + 1);
+      else $("#octet" + (i + 1) + "-first").html(octNet[i]);
       for (let i = parseInt(maskNetBin.length); i <= 8; i++) {
         maskNetBin = "0" + maskNetBin.toString();
       }
@@ -39,6 +41,8 @@ $(document).ready(function () {
       for (let i = 0; i <= 8; i++) {
         const numMaskNetBin = String(maskNetBin)[i];
         $("#net-bit" + i + "-octet" + currentOctet).html(parseInt(numMaskNetBin));
+        if (currentOctet == 4 && i == 8) $("#first-bit8-octet4").html(1);
+        else $("#first-bit" + i + "-octet" + currentOctet).html(parseInt(numMaskNetBin));
       }
 
     }
@@ -88,6 +92,11 @@ $(document).ready(function () {
           $("#octet" + octet + "-network").html(
             parseInt(octetNetworkValue) + parseInt(valueBit)
           );
+          if (octet < 4) $("#octet" + octet + "-first").html(parseInt($("#octet" + octet + "-network").html()));
+          if (octet == 4 && bit == 8) $("#first-bit8-octet4").html("1");
+          else $("#first-bit" + bit + "-octet" + octet).html("1");
+          $("#octet4-first").html(parseInt($("#octet4-network").html()) + 1);
+          $("#first-bit8-octet4").html("1");
         }
       } else {
         $("#octet" + octet + "-eq-dec").val(
@@ -98,6 +107,10 @@ $(document).ready(function () {
           $("#octet" + octet + "-network").html(
             parseInt(octetNetworkValue) - parseInt(valueBit)
           );
+          if (octet < 4) $("#octet" + octet + "-first").html(parseInt($("#octet" + octet + "-network").html()));
+          if (octet == 4 && bit == 8) $("#first-bit8-octet4").html("1");
+          else $("#first-bit" + bit + "-octet" + octet).html("0");
+          $("#octet4-first").html(parseInt($("#octet4-network").html()) + 1);
         }
       }
     });
@@ -129,8 +142,18 @@ $(document).ready(function () {
         if ($("#bit" + (bitNum - 1)).attr("class") == "bit-reseau") {
           $("#net-bit" + i + "-octet" + countCurrentOctet).html(numBin);
           if (parseInt(numBin) == 1) valNet += bitValues[i - 1];
+          $("#first-bit" + i + "-octet" + countCurrentOctet).html(numBin);
         }
         $("#octet" + countCurrentOctet + "-network").html(valNet);
+
+        if (countCurrentOctet < 4) {
+          $("#octet" + countCurrentOctet + "-first").html(parseInt($("#octet" + countCurrentOctet + "-network").html()));
+        }
+        $("#octet4-first").html(parseInt($("#octet4-network").html()) + 1);
+        $("#first-bit8-octet4").html("1");
+
+
+
       }
     });
   }
