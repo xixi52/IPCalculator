@@ -133,8 +133,7 @@ $(document).ready(function () {
         }
       }
 
-      updateBinLast(octet)
-
+      updateBinLast(octet);
     });
   }
 
@@ -176,7 +175,7 @@ $(document).ready(function () {
         $("#octet4-first").html(parseInt($("#octet4-network").html()) + 1);
         $("#first-bit8-octet4").html("1");
 
-        updateBinLast(countCurrentOctet)
+        updateBinLast(countCurrentOctet);
       }
     });
   }
@@ -184,8 +183,8 @@ $(document).ready(function () {
 
 function updateBinLast(countCurrentOctet) {
   const range = 32 - parseInt($("#masque").val());
-  let binaryLast = [0,0,0,0],
-  binTemp = 0;
+  let binaryLast = [0, 0, 0, 0],
+    binTemp = 0;
 
   if (countCurrentOctet == 4) {
     if (range <= 8) {
@@ -262,17 +261,19 @@ function updateBinLast(countCurrentOctet) {
   let octetLast = 1;
   let bitLast = 1;
   for (let i = 0; i < 32; i++) {
-    bitLast++
+    bitLast++;
     if (i == 8) {
       octetLast = 2;
-      bitLast = 1
+      bitLast = 1;
     } else if (i == 16) {
       octetLast = 3;
-      bitLast = 1
+      bitLast = 1;
     } else if (i == 24) {
       octetLast = 4;
-      bitLast = 1
+      bitLast = 1;
     }
-    $("#last-bit" + bitLast + "-octet" + octetLast).html(String(binaryLast[octetLast - 1])[bitLast - 1]);
+    $("#last-bit" + bitLast + "-octet" + octetLast).html(
+      String(binaryLast[octetLast - 1])[bitLast - 1]
+    );
   }
 }
