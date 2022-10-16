@@ -153,6 +153,74 @@ $(document).ready(function () {
         $("#first-bit8-octet4").html("1");
 
 
+        const range = 32 - parseInt($("#masque").val());
+        let binaryLast = 0;
+
+        if(countCurrentOctet == 4) {
+          if (range <= 8) {
+            $("#octet4-last").html(parseInt($("#octet4-network").html()) + 2 ** range - 2);
+            binaryLast = parseInt($("#octet4-last").html());
+            binaryLast = binaryLast.toString(2);
+          } else {
+            $("#octet4-last").html(254);
+            binaryLast = 254;
+            binaryLast = binaryLast.toString(2);
+          }
+          binaryLast = binaryLast.padStart(8, "0");
+          for (let i = 0; i < 8; i++) {
+            $("#last-bit" + (i + 1) + "-octet4").html(String(binaryLast)[i]);
+          }
+        } else if(countCurrentOctet == 3) {
+          if (range > 8 && range <= 16) {
+            $("#octet3-last").html(parseInt($("#octet3-network").html()) + 2 ** (range - 8) - 2);
+            binaryLast = parseInt($("#octet3-last").html());
+            binaryLast = binaryLast.toString(2);
+          } else if (range > 8 && range > 16) {
+            $("#octet3-last").html(255);
+            binaryLast = 255;
+            binaryLast = binaryLast.toString(2);
+          } else {
+            $("#octet3-last").html($("#octet3-network").html());
+            binaryLast = parseInt($("#octet3-network").html());
+            binaryLast = binaryLast.toString(2);
+          }
+          binaryLast = binaryLast.padStart(8, "0");
+          for (let i = 0; i < 8; i++) {
+            $("#last-bit" + (i + 1) + "-octet3").html(String(binaryLast)[i]);
+          }
+        } else if(countCurrentOctet == 2) {
+          if (range > 16 && range <= 24) {
+            $("#octet2-last").html(parseInt($("#octet2-network").html()) + 2 ** (range - 8 * 2) - 2);
+            binaryLast = parseInt($("#octet2-last").html());
+            binaryLast = binaryLast.toString(2);
+          } else if (range > 16 && range > 24) {
+            $("#octet2-last").html(255);
+            binaryLast = 255;
+            binaryLast = binaryLast.toString(2);
+          } else {
+            $("#octet2-last").html($("#octet2-network").html());
+            binaryLast = parseInt($("#octet2-network").html());
+            binaryLast = binaryLast.toString(2);
+          }
+          binaryLast = binaryLast.padStart(8, "0");
+          for (let i = 0; i < 8; i++) {
+            $("#last-bit" + (i + 1) + "-octet2").html(String(binaryLast)[i]);
+          }
+        } else if(countCurrentOctet == 1) {
+          if (range > 24 && range <= 32) {
+            $("#octet1-last").html(parseInt($("#octet1-network").html()) + 2 ** (range - 8 * 3) - 2);
+            binaryLast = parseInt($("#octet1-network").html());
+            binaryLast = binaryLast.toString(2);
+          } else {
+            $("#octet1-last").html($("#octet1-network").html());
+            binaryLast = parseInt($("#octet1-network").html());
+            binaryLast = binaryLast.toString(2);
+          }
+          binaryLast = binaryLast.padStart(8, "0");
+          for (let i = 0; i < 8; i++) {
+            $("#last-bit" + (i + 1) + "-octet1").html(String(binaryLast)[i]);
+          }
+        }
 
       }
     });
