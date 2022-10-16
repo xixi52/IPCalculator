@@ -210,7 +210,7 @@
                 else $leftBorderBit = "";
 
                 if(($bitNumber >= 8 && $octetNumber == 4)) {
-                  echo "          <td class=\"border" . $rightBorderBit . $leftBorderBit . "\" id=\"last-bit" . $bitNumber . "-octet" . $octetNumber . "\">1</td>\n";
+                  echo "          <td class=\"border" . $rightBorderBit . $leftBorderBit . "\" id=\"first-bit" . $bitNumber . "-octet" . $octetNumber . "\">1</td>\n";
                   if($bitNumber == 8) {
                     $bitNumber = 1;
                     $octetNumber++;
