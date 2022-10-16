@@ -7,27 +7,36 @@ $(document).ready(function () {
     else if ($(this).val() <= 1) $(this).val(1);
     else if ($(this).val() >= 31) $(this).val(31);
 
-    let octNet = [0,0,0,0];
+    let octNet = [0, 0, 0, 0];
 
     const masque = $(this).val();
     for (let i = 1; i <= 31; i++) {
-      if(i==1) octNet = [0,0,0,0];
+      if (i == 1) octNet = [0, 0, 0, 0];
       if (i <= masque) {
         $("#bit" + i).removeClass();
         $("#bit" + i).addClass("bit-reseau");
 
-        if (i <= 8 && parseInt($("#bit" + i + "-octet1").val()) == 1) octNet[0] += bitValues[i - 1];
-        else if (i <= 16 && parseInt($("#bit" + (i - 8) + "-octet2").val()) == 1) octNet[1] += bitValues[i - 1 - 8];
-        else if (i <= 24 && parseInt($("#bit" + (i - 8 * 2) + "-octet3").val()) == 1) octNet[2] += bitValues[i - 1 - 8 * 2];
-        else if (parseInt($("#bit" + (i - 8 * 3) + "-octet4").val()) == 1) octNet[3] += bitValues[i - 1 - 8 * 3];
-
+        if (i <= 8 && parseInt($("#bit" + i + "-octet1").val()) == 1)
+          octNet[0] += bitValues[i - 1];
+        else if (
+          i <= 16 &&
+          parseInt($("#bit" + (i - 8) + "-octet2").val()) == 1
+        )
+          octNet[1] += bitValues[i - 1 - 8];
+        else if (
+          i <= 24 &&
+          parseInt($("#bit" + (i - 8 * 2) + "-octet3").val()) == 1
+        )
+          octNet[2] += bitValues[i - 1 - 8 * 2];
+        else if (parseInt($("#bit" + (i - 8 * 3) + "-octet4").val()) == 1)
+          octNet[3] += bitValues[i - 1 - 8 * 3];
       } else {
         $("#bit" + i).removeClass();
         $("#bit" + i).addClass("bit-hote");
       }
     }
 
-    for (let i = 0; i<4; i++) {
+    for (let i = 0; i < 4; i++) {
       const currentOctet = i + 1;
 
       let maskNetBin = octNet[i].toString(2);
@@ -40,11 +49,15 @@ $(document).ready(function () {
 
       for (let i = 0; i <= 8; i++) {
         const numMaskNetBin = String(maskNetBin)[i];
-        $("#net-bit" + i + "-octet" + currentOctet).html(parseInt(numMaskNetBin));
+        $("#net-bit" + i + "-octet" + currentOctet).html(
+          parseInt(numMaskNetBin)
+        );
         if (currentOctet == 4 && i == 8) $("#first-bit8-octet4").html(1);
-        else $("#first-bit" + i + "-octet" + currentOctet).html(parseInt(numMaskNetBin));
+        else
+          $("#first-bit" + i + "-octet" + currentOctet).html(
+            parseInt(numMaskNetBin)
+          );
       }
-
     }
   });
 
@@ -92,7 +105,10 @@ $(document).ready(function () {
           $("#octet" + octet + "-network").html(
             parseInt(octetNetworkValue) + parseInt(valueBit)
           );
-          if (octet < 4) $("#octet" + octet + "-first").html(parseInt($("#octet" + octet + "-network").html()));
+          if (octet < 4)
+            $("#octet" + octet + "-first").html(
+              parseInt($("#octet" + octet + "-network").html())
+            );
           if (octet == 4 && bit == 8) $("#first-bit8-octet4").html("1");
           else $("#first-bit" + bit + "-octet" + octet).html("1");
           $("#octet4-first").html(parseInt($("#octet4-network").html()) + 1);
@@ -107,7 +123,10 @@ $(document).ready(function () {
           $("#octet" + octet + "-network").html(
             parseInt(octetNetworkValue) - parseInt(valueBit)
           );
-          if (octet < 4) $("#octet" + octet + "-first").html(parseInt($("#octet" + octet + "-network").html()));
+          if (octet < 4)
+            $("#octet" + octet + "-first").html(
+              parseInt($("#octet" + octet + "-network").html())
+            );
           if (octet == 4 && bit == 8) $("#first-bit8-octet4").html("1");
           else $("#first-bit" + bit + "-octet" + octet).html("0");
           $("#octet4-first").html(parseInt($("#octet4-network").html()) + 1);
@@ -147,18 +166,21 @@ $(document).ready(function () {
         $("#octet" + countCurrentOctet + "-network").html(valNet);
 
         if (countCurrentOctet < 4) {
-          $("#octet" + countCurrentOctet + "-first").html(parseInt($("#octet" + countCurrentOctet + "-network").html()));
+          $("#octet" + countCurrentOctet + "-first").html(
+            parseInt($("#octet" + countCurrentOctet + "-network").html())
+          );
         }
         $("#octet4-first").html(parseInt($("#octet4-network").html()) + 1);
         $("#first-bit8-octet4").html("1");
 
-
         const range = 32 - parseInt($("#masque").val());
         let binaryLast = 0;
 
-        if(countCurrentOctet == 4) {
+        if (countCurrentOctet == 4) {
           if (range <= 8) {
-            $("#octet4-last").html(parseInt($("#octet4-network").html()) + 2 ** range - 2);
+            $("#octet4-last").html(
+              parseInt($("#octet4-network").html()) + 2 ** range - 2
+            );
             binaryLast = parseInt($("#octet4-last").html());
             binaryLast = binaryLast.toString(2);
           } else {
@@ -170,9 +192,11 @@ $(document).ready(function () {
           for (let i = 0; i < 8; i++) {
             $("#last-bit" + (i + 1) + "-octet4").html(String(binaryLast)[i]);
           }
-        } else if(countCurrentOctet == 3) {
+        } else if (countCurrentOctet == 3) {
           if (range > 8 && range <= 16) {
-            $("#octet3-last").html(parseInt($("#octet3-network").html()) + 2 ** (range - 8) - 2);
+            $("#octet3-last").html(
+              parseInt($("#octet3-network").html()) + 2 ** (range - 8) - 2
+            );
             binaryLast = parseInt($("#octet3-last").html());
             binaryLast = binaryLast.toString(2);
           } else if (range > 8 && range > 16) {
@@ -188,9 +212,11 @@ $(document).ready(function () {
           for (let i = 0; i < 8; i++) {
             $("#last-bit" + (i + 1) + "-octet3").html(String(binaryLast)[i]);
           }
-        } else if(countCurrentOctet == 2) {
+        } else if (countCurrentOctet == 2) {
           if (range > 16 && range <= 24) {
-            $("#octet2-last").html(parseInt($("#octet2-network").html()) + 2 ** (range - 8 * 2) - 2);
+            $("#octet2-last").html(
+              parseInt($("#octet2-network").html()) + 2 ** (range - 8 * 2) - 2
+            );
             binaryLast = parseInt($("#octet2-last").html());
             binaryLast = binaryLast.toString(2);
           } else if (range > 16 && range > 24) {
@@ -206,9 +232,11 @@ $(document).ready(function () {
           for (let i = 0; i < 8; i++) {
             $("#last-bit" + (i + 1) + "-octet2").html(String(binaryLast)[i]);
           }
-        } else if(countCurrentOctet == 1) {
+        } else if (countCurrentOctet == 1) {
           if (range > 24 && range <= 32) {
-            $("#octet1-last").html(parseInt($("#octet1-network").html()) + 2 ** (range - 8 * 3) - 2);
+            $("#octet1-last").html(
+              parseInt($("#octet1-network").html()) + 2 ** (range - 8 * 3) - 2
+            );
             binaryLast = parseInt($("#octet1-network").html());
             binaryLast = binaryLast.toString(2);
           } else {
@@ -221,7 +249,6 @@ $(document).ready(function () {
             $("#last-bit" + (i + 1) + "-octet1").html(String(binaryLast)[i]);
           }
         }
-
       }
     });
   }
