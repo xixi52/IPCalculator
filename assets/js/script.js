@@ -7,15 +7,40 @@ $(document).ready(function () {
     else if ($(this).val() <= 1) $(this).val(1);
     else if ($(this).val() >= 31) $(this).val(31);
 
+    let octNet = [0,0,0,0];
+
     const masque = $(this).val();
     for (let i = 1; i <= 31; i++) {
+      if(i==1) octNet = [0,0,0,0];
       if (i <= masque) {
         $("#bit" + i).removeClass();
         $("#bit" + i).addClass("bit-reseau");
+
+        if (i <= 8 && parseInt($("#bit" + i + "-octet1").val()) == 1) octNet[0] += bitValues[i - 1];
+        else if (i <= 16 && parseInt($("#bit" + (i - 8) + "-octet2").val()) == 1) octNet[1] += bitValues[i - 1 - 8];
+        else if (i <= 24 && parseInt($("#bit" + (i - 8 * 2) + "-octet3").val()) == 1) octNet[2] += bitValues[i - 1 - 8 * 2];
+        else if (parseInt($("#bit" + (i - 8 * 3) + "-octet4").val()) == 1) octNet[3] += bitValues[i - 1 - 8 * 3];
+
       } else {
         $("#bit" + i).removeClass();
         $("#bit" + i).addClass("bit-hote");
       }
+    }
+
+    for (let i = 0; i<4; i++) {
+      const currentOctet = i + 1;
+
+      let maskNetBin = octNet[i].toString(2);
+      $("#octet" + (i + 1) + "-network").html(octNet[i]);
+      for (let i = parseInt(maskNetBin.length); i <= 8; i++) {
+        maskNetBin = "0" + maskNetBin.toString();
+      }
+
+      for (let i = 0; i <= 8; i++) {
+        const numMaskNetBin = String(maskNetBin)[i];
+        $("#net-bit" + i + "-octet" + currentOctet).html(parseInt(numMaskNetBin));
+      }
+
     }
   });
 
