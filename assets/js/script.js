@@ -1,5 +1,6 @@
 $(document).ready(function () {
-
+  const bitValues = [128,64,32,16,8,4,2,1];
+  
     // Event if change value mask arrow & key
     $("#masque").on("input", function () {
       if (!$(this).val()) $(this).val(1);
@@ -94,16 +95,19 @@ $(document).ready(function () {
 
         for (let i = parseInt(lengthValueBin); i <=8; i++ ) {valueInputEqDescToBin = "0" + valueInputEqDescToBin.toString();}
 
+        let valNet = 0;
         for (let i = 0; i<=8; i++) {
+          if(i==0) valNet = 0;
           const numBin = String(valueInputEqDescToBin)[i];
           $("#bit" + i + "-octet" + countCurrentOctet).val(parseInt(numBin));
           const bitNum = (countCurrentOctet - 1) * 8 + i + 1;
           if ($("#bit" + (bitNum - 1) ).attr("class") == "bit-reseau") {
             $("#net-bit" + i + "-octet" + countCurrentOctet).html(numBin)
+            if (parseInt(numBin) == 1) valNet += bitValues[i-1]
           }            
-
+          $("#octet" + countCurrentOctet + "-network").html(valNet)
         }
-        
+
       });
 
     }
