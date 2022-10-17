@@ -382,6 +382,10 @@
               }
             } ?>
         </tr>
+        <!-- Blank row -->
+        <tr>
+          <td class="noborder blank-cell" colspan="38"></td> 
+        </tr>
         <!-- Credit -->
         <tr>
           <td class="noborder blank-cell credit-by" colspan="38"><a href="https://github.com/xixi52">Développé par Alexis MOUREY avec <img src="assets/img/heart.svg"></a></td> 
