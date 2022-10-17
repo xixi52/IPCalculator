@@ -87,7 +87,7 @@
               if ($i == 1) {
                 echo "<td class=\"desc-bit-octet\">Masque de sous réseau</td>\n";
               } else if ($i == 2) {
-                echo "<td><input type=\"number\" id=\"masque\" name=\"masque\" value=\"18\" min=\"1\" max=\"31\"></td>\n";
+                echo "<td><input class=\"bold\" type=\"number\" id=\"masque\" name=\"masque\" value=\"18\" min=\"1\" max=\"31\"></td>\n";
                 $bitNumber++;
               } else if ($i == 3 || $i == 12 || $i == 21 || $i == 30) {
                 if ($i == 3) echo "          <td class=\"noborder\"></td>\n";
@@ -119,13 +119,13 @@
         <tr class="eq-dec">
           <td colspan="2">Equivalent en décimale</td> 
           <td class="noborder"></td>
-          <td class="edit-area" colspan="8"><input type="number" id="octet1-eq-dec" name="octet1-eq-dec" value="128" min="0" max="255"></td> 
+          <td class="edit-area" colspan="8"><input class="bold" type="number" id="octet1-eq-dec" name="octet1-eq-dec" value="128" min="0" max="255"></td> 
           <td class="noborder point">.</td>
-          <td class="edit-area" colspan="8"><input type="number" id="octet2-eq-dec" name="octet2-eq-dec" value="0" min="0" max="255"></td> 
+          <td class="edit-area" colspan="8"><input class="bold" type="number" id="octet2-eq-dec" name="octet2-eq-dec" value="0" min="0" max="255"></td> 
           <td class="noborder point">.</td>
-          <td class="edit-area" colspan="8"><input type="number" id="octet3-eq-dec" name="octet3-eq-dec" value="0" min="0" max="255"></td> 
+          <td class="edit-area" colspan="8"><input class="bold" type="number" id="octet3-eq-dec" name="octet3-eq-dec" value="0" min="0" max="255"></td> 
           <td class="noborder point">.</td>
-          <td class="edit-area" colspan="8"><input type="number" id="octet4-eq-dec" name="octet4-eq-dec" value="0" min="0" max="255"></td> 
+          <td class="edit-area" colspan="8"><input class="bold" type="number" id="octet4-eq-dec" name="octet4-eq-dec" value="0" min="0" max="255"></td> 
         </tr>
         <!-- Blank row -->
         <tr>
@@ -135,13 +135,13 @@
         <tr class="eq-dec">
           <td colspan="2">Adresse Réseau</td> 
           <td class="noborder"></td>
-          <td colspan="8" id="octet1-network">128</td> 
+          <td class="bold" colspan="8" id="octet1-network">128</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet2-network">0</td> 
+          <td class="bold" colspan="8" id="octet2-network">0</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet3-network">0</td> 
+          <td class="bold" colspan="8" id="octet3-network">0</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet4-network">0</td> 
+          <td class="bold" colspan="8" id="octet4-network">0</td> 
         </tr>
         <!-- Network bits list -->
         <tr class="bit-network">
@@ -180,13 +180,13 @@
         <tr class="first-dec">
           <td colspan="2">Première Adresse</td> 
           <td class="noborder"></td>
-          <td colspan="8" id="octet1-first">128</td> 
+          <td class="bold" colspan="8" id="octet1-first">128</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet2-first">0</td> 
+          <td class="bold" colspan="8" id="octet2-first">0</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet3-first">0</td> 
+          <td class="bold" colspan="8" id="octet3-first">0</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet4-first">1</td> 
+          <td class="bold" colspan="8" id="octet4-first">1</td> 
         </tr>
         <!-- First IP list -->
         <tr class="bit-first">
@@ -231,13 +231,13 @@
         <tr class="last-dec">
           <td colspan="2">Dernière Adresse</td> 
           <td class="noborder"></td>
-          <td colspan="8" id="octet1-last">128</td> 
+          <td class="bold" colspan="8" id="octet1-last">128</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet2-last">0</td> 
+          <td class="bold" colspan="8" id="octet2-last">0</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet3-last">63</td> 
+          <td class="bold" colspan="8" id="octet3-last">63</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet4-last">254</td> 
+          <td class="bold" colspan="8" id="octet4-last">254</td> 
         </tr>
         <!-- Last IP list -->
         <tr class="bit-last">
@@ -282,13 +282,13 @@
         <tr class="broadcast-dec">
           <td colspan="2">Adresse de diffusion</td> 
           <td class="noborder"></td>
-          <td colspan="8" id="octet1-broadcast">128</td> 
+          <td class="bold" colspan="8" id="octet1-broadcast">128</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet2-broadcast">0</td> 
+          <td class="bold" colspan="8" id="octet2-broadcast">0</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet3-broadcast">63</td> 
+          <td class="bold" colspan="8" id="octet3-broadcast">63</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet4-broadcast">255</td> 
+          <td class="bold" colspan="8" id="octet4-broadcast">255</td> 
         </tr>
         <!-- Broadcast IP list -->
         <tr class="bit-broadcast">
@@ -337,13 +337,13 @@
         <tr class="mask-dec">
           <td colspan="2">Masque de sous-réseau</td> 
           <td class="noborder"></td>
-          <td colspan="8" id="octet1-mask">255</td> 
+          <td class="bold" colspan="8" id="octet1-mask">255</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet2-mask">255</td> 
+          <td class="bold" colspan="8" id="octet2-mask">255</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet3-mask">192</td> 
+          <td class="bold" colspan="8" id="octet3-mask">192</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet4-mask">0</td> 
+          <td class="bold" colspan="8" id="octet4-mask">0</td> 
         </tr>
         <!-- Mask IP list -->
         <tr class="bit-mask">
@@ -390,13 +390,13 @@
         <tr class="wildcard-mask-dec">
           <td colspan="2">Wildcard Mask</td> 
           <td class="noborder"></td>
-          <td colspan="8" id="octet1-wildcard-mask">0</td> 
+          <td class="bold" colspan="8" id="octet1-wildcard-mask">0</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet2-wildcard-mask">0</td> 
+          <td class="bold" colspan="8" id="octet2-wildcard-mask">0</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet3-wildcard-mask">63</td> 
+          <td class="bold" colspan="8" id="octet3-wildcard-mask">63</td> 
           <td class="noborder point">.</td>
-          <td colspan="8" id="octet4-wildcard-mask">255</td> 
+          <td class="bold" colspan="8" id="octet4-wildcard-mask">255</td> 
         </tr>
         <!-- Wildcard Mask IP list -->
         <tr class="bit-wildcard-mask">
@@ -447,19 +447,19 @@
         <tr>
           <td class="noborder blank-cell" colspan="21"></td> 
           <td class="border-left-bold border-top-bold" colspan="5">Nombre d'hôtes</td> 
-          <td id="host-count" class="border-right-bold border-top-bold" colspan="4">16382</td> 
+          <td id="host-count" class="bold border-right-bold border-top-bold" colspan="4">16382</td> 
         </tr>
         <!-- Class address -->
         <tr>
           <td class="noborder blank-cell" colspan="21"></td> 
           <td class="border-left-bold" colspan="5">Classe de l'adresse</td> 
-          <td id="class-address" class="border-right-bold" colspan="4">B</td> 
+          <td id="class-address" class="bold border-right-bold" colspan="4">B</td> 
         </tr>
         <!-- Type address -->
         <tr>
           <td class="noborder blank-cell" colspan="21">Ce programme permet de trouver l'adresse du réseau </td> 
           <td class="border-left-bold border-bottom-bold" colspan="5">Type d'adresse</td> 
-          <td id="type-address" class="border-right-bold border-bottom-bold" colspan="4">Publique</td> 
+          <td id="type-address" class="bold border-right-bold border-bottom-bold" colspan="4">Publique</td> 
         </tr>
       </tbody>
     </table>
