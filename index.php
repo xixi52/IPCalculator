@@ -278,6 +278,57 @@
               }
             } ?>
         </tr>
+        <!-- Broadcast IP -->
+        <tr class="broadcast-dec">
+          <td colspan="2">Adresse de diffusion</td> 
+          <td class="noborder"></td>
+          <td colspan="8" id="octet1-broadcast">128</td> 
+          <td class="noborder point">.</td>
+          <td colspan="8" id="octet2-broadcast">0</td> 
+          <td class="noborder point">.</td>
+          <td colspan="8" id="octet3-broadcast">63</td> 
+          <td class="noborder point">.</td>
+          <td colspan="8" id="octet4-broadcast">255</td> 
+        </tr>
+        <!-- Broadcast IP list -->
+        <tr class="bit-broadcast">
+          <?php 
+          $leftBorderBit = "";
+          $rightBorderBit = "";
+          $bitNumber = 0;
+          $octetNumber = 1;
+          $bitInputVal = 1;
+            for ($i = 1; $i <= 36; $i++) {
+              if ($i == 1) {
+                $bitNumber++;
+                echo "<td class=\"noborder\" colspan=\"3\"></td>\n";
+              } else if ($i == 10 || $i == 19 || $i == 28) {
+                echo "          <td class=\"noborder\">.</td>\n";
+              } else {
+                if ($bitNumber != 4 && $bitNumber != 8) $rightBorderBit = "-right";
+                else $rightBorderBit = "";
+
+                if ($bitNumber != 1 && $bitNumber != 5) $leftBorderBit = "-left";
+                else $leftBorderBit = "";
+
+                if(($bitNumber >= 3 && $octetNumber == 3) || ($bitNumber <= 8 && $octetNumber == 4)) {
+                  echo "          <td class=\"border" . $rightBorderBit . $leftBorderBit . "\" id=\"broadcast-bit" . $bitNumber . "-octet" . $octetNumber . "\">1</td>\n";
+                  if($bitNumber == 8) {
+                    $bitNumber = 1;
+                    $octetNumber++;
+                  } else $bitNumber++;
+                } else if($bitNumber == 8) {
+                  echo "          <td class=\"border" . $rightBorderBit . $leftBorderBit . "\" id=\"broadcast-bit" . $bitNumber . "-octet" . $octetNumber . "\">" . $bitInputVal . "</td>\n";
+                  $bitNumber = 1;
+                  $octetNumber++;
+                } else {
+                  echo "          <td class=\"border" . $rightBorderBit . $leftBorderBit . "\" id=\"broadcast-bit" . $bitNumber . "-octet" . $octetNumber . "\">" . $bitInputVal . "</td>\n";
+                  $bitNumber++;
+                  $bitInputVal = 0;
+                }
+              }
+            } ?>
+        </tr>
       </tbody>
     </table>
     <!-- /TABLE -->

@@ -196,11 +196,13 @@ function updateBinLast(countCurrentOctet) {
         parseInt($("#octet4-network").html()) + 2 ** range - 2
       );
       binTemp = parseInt($("#octet4-last").html());
+      $("#octet4-broadcast").html(binTemp + 1);
       binTemp = binTemp.toString(2);
       binaryLast[3] = binTemp;
     } else {
       $("#octet4-last").html(254);
       binTemp = 254;
+      $("#octet4-broadcast").html(binTemp + 1);
       binTemp = binTemp.toString(2);
       binaryLast[3] = binTemp;
     }
@@ -211,16 +213,19 @@ function updateBinLast(countCurrentOctet) {
         parseInt($("#octet3-network").html()) + 2 ** (range - 8) - 1
       );
       binTemp = parseInt($("#octet3-last").html());
+      $("#octet3-broadcast").html(binTemp);
       binTemp = binTemp.toString(2);
       binaryLast[2] = binTemp;
     } else if (range > 8 && range > 16) {
       $("#octet3-last").html(255);
       binTemp = 255;
+      $("#octet3-broadcast").html(binTemp);
       binTemp = binTemp.toString(2);
       binaryLast[2] = binTemp;
     } else {
       $("#octet3-last").html($("#octet3-network").html());
       binTemp = parseInt($("#octet3-last").html());
+      $("#octet3-broadcast").html(binTemp);
       binTemp = binTemp.toString(2);
       binaryLast[2] = binTemp;
     }
@@ -231,16 +236,19 @@ function updateBinLast(countCurrentOctet) {
         parseInt($("#octet2-network").html()) + 2 ** (range - 8 * 2) - 1
       );
       binTemp = parseInt($("#octet2-last").html());
+      $("#octet2-broadcast").html(binTemp);
       binTemp = binTemp.toString(2);
       binaryLast[1] = binTemp;
     } else if (range > 16 && range > 24) {
       $("#octet2-last").html(255);
       binTemp = 255;
+      $("#octet2-broadcast").html(binTemp);
       binTemp = binTemp.toString(2);
       binaryLast[1] = binTemp;
     } else {
       $("#octet2-last").html($("#octet2-network").html());
       binTemp = parseInt($("#octet2-last").html());
+      $("#octet2-broadcast").html(binTemp);
       binTemp = binTemp.toString(2);
       binaryLast[1] = binTemp;
     }
@@ -251,11 +259,13 @@ function updateBinLast(countCurrentOctet) {
         parseInt($("#octet1-network").html()) + 2 ** (range - 8 * 3) - 1
       );
       binTemp = parseInt($("#octet1-last").html());
+      $("#octet1-broadcast").html(binTemp);
       binTemp = binTemp.toString(2);
       binaryLast[0] = binTemp;
     } else {
       $("#octet1-last").html($("#octet1-network").html());
       binTemp = parseInt($("#octet1-last").html());
+      $("#octet1-broadcast").html(binTemp);
       binTemp = binTemp.toString(2);
       binaryLast[0] = binTemp;
     }
@@ -279,5 +289,9 @@ function updateBinLast(countCurrentOctet) {
     $("#last-bit" + bitLast + "-octet" + octetLast).html(
       String(binaryLast[octetLast - 1])[bitLast - 1]
     );
+    if (bitLast == 32) $("#broadcast-bit" + bitLast + "-octet" + octetLast).html(
+      String(binaryLast[octetLast - 1])[bitLast - 1]
+    );
+    else $("#broadcast-bit" + bitLast + "-octet" + octetLast).html(1);
   }
 }
