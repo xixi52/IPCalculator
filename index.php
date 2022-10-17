@@ -382,6 +382,14 @@
               }
             } ?>
         </tr>
+        <!-- Credit -->
+        <tr>
+          <td class="noborder blank-cell credit-by" colspan="38"><a href="https://github.com/xixi52">Développé par Alexis MOUREY avec <img src="assets/img/heart.svg"></a></td> 
+        </tr>
+        <!-- Link -->
+        <tr>
+          <td class="noborder blank-cell credit-excel" colspan="38"><a href="http://www.tontonfred.net/blog/?p=1978">Format Excel par Stephane Menoud</a></td> 
+        </tr>
       </tbody>
     </table>
     <!-- /TABLE -->

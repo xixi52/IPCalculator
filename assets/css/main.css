@@ -118,3 +118,24 @@ table {
     border: none;
     outline: none;
 }
+
+.credit-by, .credit-excel {
+    text-align: inherit;
+}
+
+.credit-by {
+    padding-top: 20px;
+}
+
+.credit-by img {
+    width: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: #366092;
+  }
