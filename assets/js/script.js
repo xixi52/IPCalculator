@@ -65,8 +65,8 @@ $(document).ready(function () {
     }
 
     // Hosts
-    $("#host-count").html(2 ** (32 - parseInt($("#masque").val())))
-    $("#host-available").html(2 ** (32 - parseInt($("#masque").val())) - 2)
+    $("#host-count").html(2 ** (32 - parseInt($("#masque").val())));
+    $("#host-available").html(2 ** (32 - parseInt($("#masque").val())) - 2);
   });
 
   // Loop for all bits
@@ -383,15 +383,26 @@ function updateBinLast(countCurrentOctet) {
   }
 
   // Class address
-  if (parseInt($("#octet1-eq-dec").val()) <= 126) $("#class-address").html("A")
-  else if (parseInt($("#octet1-eq-dec").val()) == 127) $("#class-address").html("A (réservée)")
-  else if (parseInt($("#octet1-eq-dec").val()) <= 191) $("#class-address").html("B")
-  else if (parseInt($("#octet1-eq-dec").val()) <= 223) $("#class-address").html("C")
-  else if (parseInt($("#octet1-eq-dec").val()) <= 239) $("#class-address").html("D")
-  else $("#class-address").html("E (réservée)")
+  if (parseInt($("#octet1-eq-dec").val()) <= 126) $("#class-address").html("A");
+  else if (parseInt($("#octet1-eq-dec").val()) == 127)
+    $("#class-address").html("A (réservée)");
+  else if (parseInt($("#octet1-eq-dec").val()) <= 191)
+    $("#class-address").html("B");
+  else if (parseInt($("#octet1-eq-dec").val()) <= 223)
+    $("#class-address").html("C");
+  else if (parseInt($("#octet1-eq-dec").val()) <= 239)
+    $("#class-address").html("D");
+  else $("#class-address").html("E (réservée)");
 
   // Type address
-  if (parseInt($("#octet1-eq-dec").val()) == 10 || (parseInt($("#octet1-eq-dec").val()) == 172 && parseInt($("#octet2-eq-dec").val()) >= 16 && parseInt($("#octet2-eq-dec").val()) <= 31) || (parseInt($("#octet1-eq-dec").val()) == 192 && parseInt($("#octet2-eq-dec").val()) == 168))  $("#type-address").html("Privée")
-  else $("#type-address").html("Publique")
-
+  if (
+    parseInt($("#octet1-eq-dec").val()) == 10 ||
+    (parseInt($("#octet1-eq-dec").val()) == 172 &&
+      parseInt($("#octet2-eq-dec").val()) >= 16 &&
+      parseInt($("#octet2-eq-dec").val()) <= 31) ||
+    (parseInt($("#octet1-eq-dec").val()) == 192 &&
+      parseInt($("#octet2-eq-dec").val()) == 168)
+  )
+    $("#type-address").html("Privée");
+  else $("#type-address").html("Publique");
 }
