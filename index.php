@@ -386,6 +386,55 @@
         <tr>
           <td class="noborder blank-cell" colspan="38"></td> 
         </tr>
+        <!-- Wildcard Mask IP -->
+        <tr class="wildcard-mask-dec">
+          <td colspan="2">Wildcard Mask</td> 
+          <td class="noborder"></td>
+          <td colspan="8" id="octet1-wildcard-mask">0</td> 
+          <td class="noborder point">.</td>
+          <td colspan="8" id="octet2-wildcard-mask">0</td> 
+          <td class="noborder point">.</td>
+          <td colspan="8" id="octet3-wildcard-mask">63</td> 
+          <td class="noborder point">.</td>
+          <td colspan="8" id="octet4-wildcard-mask">255</td> 
+        </tr>
+        <!-- Wildcard Mask IP list -->
+        <tr class="bit-wildcard-mask">
+          <?php 
+          $leftBorderBit = "";
+          $rightBorderBit = "";
+          $bitNumber = 0;
+          $octetNumber = 1;
+            for ($i = 1; $i <= 36; $i++) {
+              if ($i == 1) {
+                $bitNumber++;
+                echo "<td class=\"noborder\" colspan=\"3\"></td>\n";
+              } else if ($i == 10 || $i == 19 || $i == 28) {
+                echo "          <td class=\"noborder\">.</td>\n";
+              } else {
+                if ($bitNumber != 4 && $bitNumber != 8) $rightBorderBit = "-right";
+                else $rightBorderBit = "";
+
+                if ($bitNumber != 1 && $bitNumber != 5) $leftBorderBit = "-left";
+                else $leftBorderBit = "";
+
+                if(($bitNumber > 2 && $octetNumber == 3) || $octetNumber == 4) {
+                  echo "          <td class=\"border" . $rightBorderBit . $leftBorderBit . "\" id=\"wildcard-mask-bit" . $bitNumber . "-octet" . $octetNumber . "\">1</td>\n";
+                  if($bitNumber == 8) {
+                    $bitNumber = 1;
+                    $octetNumber++;
+                  } else $bitNumber++;
+                } else if($bitNumber == 8) {
+                  echo "          <td class=\"border" . $rightBorderBit . $leftBorderBit . "\" id=\"wildcard-mask-bit" . $bitNumber . "-octet" . $octetNumber . "\">0</td>\n";
+                  $bitNumber = 1;
+                  $octetNumber++;
+                } else {
+                  echo "          <td class=\"border" . $rightBorderBit . $leftBorderBit . "\" id=\"wildcard-mask-bit" . $bitNumber . "-octet" . $octetNumber . "\">0</td>\n";
+                  $bitNumber++;
+                }
+              }
+            } ?>
+        </tr>
         <!-- Credit -->
         <tr>
           <td class="noborder blank-cell credit-by" colspan="38"><a href="https://github.com/xixi52">Développé par Alexis MOUREY avec <img src="assets/img/heart.svg"></a></td> 
