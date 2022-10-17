@@ -290,13 +290,23 @@ function updateBinLast(countCurrentOctet) {
     $("#last-bit" + bitLast + "-octet" + octetLast).html(
       String(binaryLast[octetLast - 1])[bitLast - 1]
     );
-    if (bitLast == 32) $("#broadcast-bit" + bitLast + "-octet" + octetLast).html(
+    if ((i + 1) != 32) $("#broadcast-bit" + bitLast + "-octet" + octetLast).html(
       String(binaryLast[octetLast - 1])[bitLast - 1]
     );
     else $("#broadcast-bit" + bitLast + "-octet" + octetLast).html(1);
 
     if ($("#bit" + (i + 1)).attr("class") == "bit-reseau") $("#mask-bit" + bitLast + "-octet" + octetLast).html(1);
     else $("#mask-bit" + bitLast + "-octet" + octetLast).html(0);
+
+    if (parseInt($("#octet3-last").html()) == 255) {
+      $("#last-bit1-octet3").html(1);
+      $("#broadcast-bit1-octet3").html(1);
+    }
+    if (parseInt($("#octet2-last").html()) == 255) {
+      $("#last-bit1-octet2").html(1);
+      $("#broadcast-bit1-octet2").html(1);
+    }
+
   }
   
 }
