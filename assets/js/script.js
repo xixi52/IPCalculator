@@ -273,8 +273,7 @@ function updateBinLast(countCurrentOctet) {
   }
 
   let octetLast = 1,
-  bitLast = 1,
-  ipMaskBin = ["0","0","0","0"];
+  bitLast = 1;
   for (let i = 0; i < 32; i++) {
     bitLast++;
     if (i == 8) {
@@ -307,6 +306,37 @@ function updateBinLast(countCurrentOctet) {
       $("#broadcast-bit1-octet2").html(1);
     }
 
+  }
+
+  let ipMaskBin = ["","","",""],
+  octetMask = 1,
+  bitMask = 1;
+
+  for (let i = 1; i <= 32; i++) {
+
+    if (i == 1) {
+      octetMask = 1;
+      bitMask = 1;
+    }
+    if (i == 9) {
+      octetMask = 2;
+      bitMask = 1;
+    }
+    if (i == 17) {
+      octetMask = 3;
+      bitMask = 1;
+    }
+    if (i == 25) {
+      octetMask = 4;
+      bitMask = 1;
+    }
+
+    ipMaskBin[(octetMask - 1)] = ipMaskBin[(octetMask - 1)].toString() + $("#mask-bit" + bitMask + "-octet" + octetMask).html().toString();
+    bitMask++
+  }
+  for (let i = 0; i < 4; i++){
+    console.log(ipMaskBin)
+    $("#octet" + (i + 1) + "-mask").html(parseInt(ipMaskBin[i], 2))
   }
   
 }
