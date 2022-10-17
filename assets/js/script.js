@@ -273,7 +273,7 @@ function updateBinLast(countCurrentOctet) {
   }
 
   let octetLast = 1,
-  bitLast = 1;
+    bitLast = 1;
   for (let i = 0; i < 32; i++) {
     bitLast++;
     if (i == 8) {
@@ -289,12 +289,14 @@ function updateBinLast(countCurrentOctet) {
     $("#last-bit" + bitLast + "-octet" + octetLast).html(
       String(binaryLast[octetLast - 1])[bitLast - 1]
     );
-    if ((i + 1) != 32) $("#broadcast-bit" + bitLast + "-octet" + octetLast).html(
-      String(binaryLast[octetLast - 1])[bitLast - 1]
-    );
+    if (i + 1 != 32)
+      $("#broadcast-bit" + bitLast + "-octet" + octetLast).html(
+        String(binaryLast[octetLast - 1])[bitLast - 1]
+      );
     else $("#broadcast-bit" + bitLast + "-octet" + octetLast).html(1);
 
-    if ($("#bit" + (i + 1)).attr("class") == "bit-reseau") $("#mask-bit" + bitLast + "-octet" + octetLast).html(1);
+    if ($("#bit" + (i + 1)).attr("class") == "bit-reseau")
+      $("#mask-bit" + bitLast + "-octet" + octetLast).html(1);
     else $("#mask-bit" + bitLast + "-octet" + octetLast).html(0);
 
     if (parseInt($("#octet3-last").html()) == 255) {
@@ -305,16 +307,14 @@ function updateBinLast(countCurrentOctet) {
       $("#last-bit1-octet2").html(1);
       $("#broadcast-bit1-octet2").html(1);
     }
-
   }
 
-  let ipMaskBin = ["","","",""],
-  ipWildcardBin = ["","","",""],
-  octetMask = 1,
-  bitMask = 1;
+  let ipMaskBin = ["", "", "", ""],
+    ipWildcardBin = ["", "", "", ""],
+    octetMask = 1,
+    bitMask = 1;
 
   for (let i = 1; i <= 32; i++) {
-
     if (i == 1) {
       octetMask = 1;
       bitMask = 1;
@@ -332,25 +332,29 @@ function updateBinLast(countCurrentOctet) {
       bitMask = 1;
     }
 
-    ipMaskBin[(octetMask - 1)] = ipMaskBin[(octetMask - 1)].toString() + $("#mask-bit" + bitMask + "-octet" + octetMask).html().toString();
-    bitMask++
+    ipMaskBin[octetMask - 1] =
+      ipMaskBin[octetMask - 1].toString() +
+      $("#mask-bit" + bitMask + "-octet" + octetMask)
+        .html()
+        .toString();
+    bitMask++;
   }
 
-  for (let i = 0; i < 4; i++){
-    $("#octet" + (i + 1) + "-mask").html(parseInt(ipMaskBin[i], 2))
+  for (let i = 0; i < 4; i++) {
+    $("#octet" + (i + 1) + "-mask").html(parseInt(ipMaskBin[i], 2));
 
     // Invert Mask
-    ipWildcardBin[i] = ipMaskBin[i].toString()
-    ipWildcardBin[i] = ipWildcardBin[i].replace(/1/g, 'x')
-    ipWildcardBin[i] = ipWildcardBin[i].replace(/0/g, '1')
-    ipWildcardBin[i] = ipWildcardBin[i].replace(/x/g, '0')
+    ipWildcardBin[i] = ipMaskBin[i].toString();
+    ipWildcardBin[i] = ipWildcardBin[i].replace(/1/g, "x");
+    ipWildcardBin[i] = ipWildcardBin[i].replace(/0/g, "1");
+    ipWildcardBin[i] = ipWildcardBin[i].replace(/x/g, "0");
 
-    $("#octet" + (i + 1) + "-wildcard-mask").html(parseInt(ipWildcardBin[i], 2))
-
+    $("#octet" + (i + 1) + "-wildcard-mask").html(
+      parseInt(ipWildcardBin[i], 2)
+    );
   }
 
   for (let i = 1; i <= 32; i++) {
-
     if (i == 1) {
       octetMask = 1;
       bitMask = 1;
@@ -368,8 +372,9 @@ function updateBinLast(countCurrentOctet) {
       bitMask = 1;
     }
 
-    $("#wildcard-mask-bit" + bitMask + "-octet" + octetMask).html(String(ipWildcardBin[octetMask - 1])[bitMask - 1])
-    bitMask++
+    $("#wildcard-mask-bit" + bitMask + "-octet" + octetMask).html(
+      String(ipWildcardBin[octetMask - 1])[bitMask - 1]
+    );
+    bitMask++;
   }
-  
 }
