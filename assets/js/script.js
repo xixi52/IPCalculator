@@ -335,7 +335,6 @@ function updateBinLast(countCurrentOctet) {
     bitMask++
   }
   for (let i = 0; i < 4; i++){
-    console.log(ipMaskBin)
     $("#octet" + (i + 1) + "-mask").html(parseInt(ipMaskBin[i], 2))
   }
   
