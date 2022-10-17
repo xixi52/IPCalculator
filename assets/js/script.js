@@ -272,8 +272,9 @@ function updateBinLast(countCurrentOctet) {
     binaryLast[0] = binaryLast[0].padStart(8, "0");
   }
 
-  let octetLast = 1;
-  let bitLast = 1;
+  let octetLast = 1,
+  bitLast = 1,
+  ipMaskBin = ["0","0","0","0"];
   for (let i = 0; i < 32; i++) {
     bitLast++;
     if (i == 8) {
@@ -293,5 +294,9 @@ function updateBinLast(countCurrentOctet) {
       String(binaryLast[octetLast - 1])[bitLast - 1]
     );
     else $("#broadcast-bit" + bitLast + "-octet" + octetLast).html(1);
+
+    if ($("#bit" + (i + 1)).attr("class") == "bit-reseau") $("#mask-bit" + bitLast + "-octet" + octetLast).html(1);
+    else $("#mask-bit" + bitLast + "-octet" + octetLast).html(0);
   }
+  
 }
