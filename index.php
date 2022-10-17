@@ -443,6 +443,24 @@
         <tr>
           <td class="noborder blank-cell credit-excel" colspan="38"><a href="http://www.tontonfred.net/blog/?p=1978">Format Excel par Stephane Menoud</a></td> 
         </tr>
+        <!-- Host count -->
+        <tr>
+          <td class="noborder blank-cell" colspan="21"></td> 
+          <td class="border-left-bold border-top-bold" colspan="5">Nombre d'hôtes</td> 
+          <td id="host-count" class="border-right-bold border-top-bold" colspan="4">16382</td> 
+        </tr>
+        <!-- Class address -->
+        <tr>
+          <td class="noborder blank-cell" colspan="21"></td> 
+          <td class="border-left-bold" colspan="5">Classe de l'adresse</td> 
+          <td id="class-address" class="border-right-bold" colspan="4">B</td> 
+        </tr>
+        <!-- Type address -->
+        <tr>
+          <td class="noborder blank-cell" colspan="21">Ce programme permet de trouver l'adresse du réseau </td> 
+          <td class="border-left-bold border-bottom-bold" colspan="5">Type d'adresse</td> 
+          <td id="type-address" class="border-right-bold border-bottom-bold" colspan="4">Publique</td> 
+        </tr>
       </tbody>
     </table>
     <!-- /TABLE -->

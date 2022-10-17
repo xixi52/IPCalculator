@@ -138,4 +138,24 @@ a {
 
 a:hover {
     color: #366092;
-  }
+}
+
+.border-right-bold {
+    border-right: 3px solid;
+}
+
+.border-left-bold {
+    border-left: 3px solid;
+}
+
+.border-top-bold {
+    border-top: 3px solid;
+}
+
+.border-bottom-bold {
+    border-bottom: 3px solid;
+}
+
+.bold {
+    font-weight: bold;
+}
