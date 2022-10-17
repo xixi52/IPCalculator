@@ -329,6 +329,10 @@
               }
             } ?>
         </tr>
+        <!-- Blank row -->
+        <tr>
+          <td class="noborder blank-cell" colspan="38"></td> 
+        </tr>
       </tbody>
     </table>
     <!-- /TABLE -->
