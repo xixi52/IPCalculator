@@ -4,6 +4,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Calculateur d'IP" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alexis.mourey.dev/ip-calculator/ " />
+    <meta property="og:image" content="https://alexis.mourey.dev/assets/images/me.jpg" />
+    <meta property="og:description" content="Ce calculateur est un outil pédagogique développé par Alexis Mourey reprenant l'outil Excel de Stéphane Menoud, mais cette fois sur le Web." />
+    <meta name="theme-color" content="#ffc000">
 
     <title>Calculateur d'IP</title>
     <link rel="stylesheet" href="assets/css/main.css">
