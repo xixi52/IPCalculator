@@ -447,7 +447,13 @@
         <tr>
           <td class="noborder blank-cell" colspan="21"></td> 
           <td class="border-left-bold border-top-bold" colspan="5">Nombre d'hôtes</td> 
-          <td id="host-count" class="bold border-right-bold border-top-bold" colspan="4">16382</td> 
+          <td id="host-count" class="bold border-right-bold border-top-bold" colspan="4">16384</td> 
+        </tr>
+        <!-- Host available -->
+        <tr>
+          <td class="noborder blank-cell" colspan="21"></td> 
+          <td class="border-left-bold" colspan="5">Hôtes disponibles</td> 
+          <td id="host-available" class="bold border-right-bold" colspan="4">16382</td> 
         </tr>
         <!-- Class address -->
         <tr>
