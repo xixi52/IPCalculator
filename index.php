@@ -451,25 +451,29 @@
         </tr>
         <!-- Host count -->
         <tr>
-          <td class="noborder blank-cell" colspan="21"></td> 
+          <td class="noborder blank-cell" colspan="12"></td> 
           <td class="border-left-bold border-top-bold" colspan="5">Nombre d'hôtes</td> 
-          <td id="host-count" class="bold border-right-bold border-top-bold" colspan="4">16384</td> 
+          <td id="host-count" class="bold border-right-bold border-top-bold" colspan="4">16384</td>
+          <td class="noborder blank-cell" colspan="4"></td> 
+          <td colspan="5">Réseau suivant</td>
+          <td class="noborder blank-cell"></td>
+          <td id="next-net" colspan="7">128.0.64.0</td>
         </tr>
         <!-- Host available -->
         <tr>
-          <td class="noborder blank-cell" colspan="21"></td> 
+          <td class="noborder blank-cell" colspan="12"></td> 
           <td class="border-left-bold" colspan="5">Hôtes disponibles</td> 
           <td id="host-available" class="bold border-right-bold" colspan="4">16382</td> 
         </tr>
         <!-- Class address -->
         <tr>
-          <td class="noborder blank-cell" colspan="21"></td> 
+          <td class="noborder blank-cell" colspan="12"></td> 
           <td class="border-left-bold" colspan="5">Classe de l'adresse</td> 
-          <td id="class-address" class="bold border-right-bold" colspan="4">B</td> 
+          <td id="class-address" class="bold border-right-bold" colspan="4">B</td>
         </tr>
         <!-- Type address -->
         <tr>
-          <td class="noborder blank-cell" colspan="21">Ce programme permet de trouver l'adresse du réseau </td> 
+          <td class="noborder blank-cell" colspan="12">Ce programme permet de trouver l'adresse du réseau </td> 
           <td class="border-left-bold border-bottom-bold" colspan="5">Type d'adresse</td> 
           <td id="type-address" class="bold border-right-bold border-bottom-bold" colspan="4">Publique</td> 
         </tr>

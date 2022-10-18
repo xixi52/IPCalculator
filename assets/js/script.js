@@ -405,4 +405,35 @@ function updateBinLast(countCurrentOctet) {
   )
     $("#type-address").html("Privée");
   else $("#type-address").html("Publique");
+
+  // Find next network
+  if (parseInt($("#octet4-broadcast").html()) < 255)
+    $("#next-net").html(
+      $("#octet1-broadcast").html().toString() +
+        "." +
+        $("#octet2-broadcast").html().toString() +
+        "." +
+        $("#octet3-broadcast").html().toString() +
+        "." +
+        (parseInt($("#octet4-broadcast").html()) + 1)
+    );
+  else if (parseInt($("#octet3-broadcast").html()) < 255)
+    $("#next-net").html(
+      $("#octet1-broadcast").html().toString() +
+        "." +
+        $("#octet2-broadcast").html().toString() +
+        "." +
+        (parseInt($("#octet3-broadcast").html()) + 1) +
+        ".0"
+    );
+  else if (parseInt($("#octet2-broadcast").html()) < 255)
+    $("#next-net").html(
+      $("#octet1-broadcast").html().toString() +
+        "." +
+        (parseInt($("#octet2-broadcast").html()) + 1) +
+        ".0.0"
+    );
+  else if (parseInt($("#octet1-broadcast").html()) < 255)
+    $("#next-net").html(parseInt($("#octet1-broadcast").html()) + 1 + ".0.0.0");
+  else $("#next-net").html("Aucun réseau suivant");
 }
