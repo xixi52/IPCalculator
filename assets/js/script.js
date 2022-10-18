@@ -3,27 +3,7 @@ $(document).ready(function () {
 
   // Event if change value hosts wanted arrow & key
   $("#host-register").on("input", function () {
-    if (
-      parseInt($("#host-register").val()) <=
-        2 ** (32 - parseInt($("#masque").val())) - 2 &&
-      parseInt($("#host-register").val()) >
-        2 ** (32 - parseInt($("#masque").val()) - 1) - 2
-    ) {
-      $("#host-register-status").addClass("success");
-      $("#host-register-status").removeClass("danger");
-      $("#host-register-status").removeClass("warning");
-    } else if (
-      parseInt($("#host-register").val()) >
-      2 ** (32 - parseInt($("#masque").val())) - 2
-    ) {
-      $("#host-register-status").removeClass("success");
-      $("#host-register-status").addClass("danger");
-      $("#host-register-status").removeClass("warning");
-    } else {
-      $("#host-register-status").removeClass("success");
-      $("#host-register-status").removeClass("danger");
-      $("#host-register-status").addClass("warning");
-    }
+    updateHostsWanted()
   });
 
   // Event if change value mask arrow & key
@@ -93,27 +73,7 @@ $(document).ready(function () {
     $("#host-count").html(2 ** (32 - parseInt($("#masque").val())));
     $("#host-available").html(2 ** (32 - parseInt($("#masque").val())) - 2);
 
-    if (
-      parseInt($("#host-register").val()) <=
-        2 ** (32 - parseInt($("#masque").val())) - 2 &&
-      parseInt($("#host-register").val()) >
-        2 ** (32 - parseInt($("#masque").val()) - 1) - 2
-    ) {
-      $("#host-register-status").addClass("success");
-      $("#host-register-status").removeClass("danger");
-      $("#host-register-status").removeClass("warning");
-    } else if (
-      parseInt($("#host-register").val()) >
-      2 ** (32 - parseInt($("#masque").val())) - 2
-    ) {
-      $("#host-register-status").removeClass("success");
-      $("#host-register-status").addClass("danger");
-      $("#host-register-status").removeClass("warning");
-    } else {
-      $("#host-register-status").removeClass("success");
-      $("#host-register-status").removeClass("danger");
-      $("#host-register-status").addClass("warning");
-    }
+    updateHostsWanted()
   });
 
   // Loop for all bits
@@ -235,6 +195,30 @@ $(document).ready(function () {
     });
   }
 });
+
+function updateHostsWanted() {
+  if (
+    parseInt($("#host-register").val()) <=
+      2 ** (32 - parseInt($("#masque").val())) - 2 &&
+    parseInt($("#host-register").val()) >
+      2 ** (32 - parseInt($("#masque").val()) - 1) - 2
+  ) {
+    $("#host-register-status").addClass("success");
+    $("#host-register-status").removeClass("danger");
+    $("#host-register-status").removeClass("warning");
+  } else if (
+    parseInt($("#host-register").val()) >
+    2 ** (32 - parseInt($("#masque").val())) - 2
+  ) {
+    $("#host-register-status").removeClass("success");
+    $("#host-register-status").addClass("danger");
+    $("#host-register-status").removeClass("warning");
+  } else {
+    $("#host-register-status").removeClass("success");
+    $("#host-register-status").removeClass("danger");
+    $("#host-register-status").addClass("warning");
+  }
+}
 
 function updateBinLast(countCurrentOctet) {
   const range = 32 - parseInt($("#masque").val());
