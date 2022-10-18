@@ -465,6 +465,12 @@
           <td class="border-left-bold" colspan="5">Hôtes disponibles</td> 
           <td id="host-available" class="bold border-right-bold" colspan="4">16382</td> 
         </tr>
+        <!-- Host register -->
+        <tr>
+          <td class="noborder blank-cell" colspan="12"></td> 
+          <td id="host-register-status" class="border-left-bold success" colspan="5">Hôtes souhaités</td> 
+          <td class="edit-area border-right-bold" colspan="4"><input class="bold" type="number" id="host-register" name="host-register" value="15230" min="1" max="2147483646"></td> 
+        </tr>
         <!-- Class address -->
         <tr>
           <td class="noborder blank-cell" colspan="12"></td> 

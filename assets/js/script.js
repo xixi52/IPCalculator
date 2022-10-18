@@ -1,6 +1,26 @@
 $(document).ready(function () {
   const bitValues = [128, 64, 32, 16, 8, 4, 2, 1];
 
+  // Event if change value hosts wanted arrow & key
+  $("#host-register").on("input", function () {
+
+    if (parseInt($("#host-register").val()) <= 2 ** (32 - parseInt($("#masque").val())) - 2 && parseInt($("#host-register").val()) >= 2 ** (32 - parseInt($("#masque").val()) - 1) - 2) {
+      $("#host-register-status").addClass("success");
+      $("#host-register-status").removeClass("danger");
+      $("#host-register-status").removeClass("warning");
+    } else if (parseInt($("#host-register").val()) > 2 ** (32 - parseInt($("#masque").val())) - 2) {
+      $("#host-register-status").removeClass("success");
+      $("#host-register-status").addClass("danger");
+      $("#host-register-status").removeClass("warning");
+    } else {
+      $("#host-register-status").removeClass("success");
+      $("#host-register-status").removeClass("danger");
+      $("#host-register-status").addClass("warning");
+    }
+
+  })
+
+
   // Event if change value mask arrow & key
   $("#masque").on("input", function () {
     if (!$(this).val()) $(this).val(1);
@@ -67,6 +87,21 @@ $(document).ready(function () {
     // Hosts
     $("#host-count").html(2 ** (32 - parseInt($("#masque").val())));
     $("#host-available").html(2 ** (32 - parseInt($("#masque").val())) - 2);
+
+    if (parseInt($("#host-register").val()) <= 2 ** (32 - parseInt($("#masque").val())) - 2 && parseInt($("#host-register").val()) >= 2 ** (32 - parseInt($("#masque").val()) - 1) - 2) {
+      $("#host-register-status").addClass("success");
+      $("#host-register-status").removeClass("danger");
+      $("#host-register-status").removeClass("warning");
+    } else if (parseInt($("#host-register").val()) > 2 ** (32 - parseInt($("#masque").val())) - 2) {
+      $("#host-register-status").removeClass("success");
+      $("#host-register-status").addClass("danger");
+      $("#host-register-status").removeClass("warning");
+    } else {
+      $("#host-register-status").removeClass("success");
+      $("#host-register-status").removeClass("danger");
+      $("#host-register-status").addClass("warning");
+    }
+
   });
 
   // Loop for all bits

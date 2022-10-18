@@ -111,7 +111,7 @@ table {
     font-weight: 800;
 }
 
-.eq-dec input {
+input {
     width: 100%;
     text-align: center;
     background-color: #bfbfbf;
@@ -158,4 +158,16 @@ a:hover {
 
 .bold {
     font-weight: bold;
+}
+
+.danger {
+    background: #ff0000;
+}
+
+.warning {
+    background: #ffd838;
+}
+
+.success {
+    background: #34e834;
 }
