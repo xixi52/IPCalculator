@@ -6,7 +6,7 @@ $(document).ready(function () {
     if (
       parseInt($("#host-register").val()) <=
         2 ** (32 - parseInt($("#masque").val())) - 2 &&
-      parseInt($("#host-register").val()) >=
+      parseInt($("#host-register").val()) >
         2 ** (32 - parseInt($("#masque").val()) - 1) - 2
     ) {
       $("#host-register-status").addClass("success");
@@ -96,7 +96,7 @@ $(document).ready(function () {
     if (
       parseInt($("#host-register").val()) <=
         2 ** (32 - parseInt($("#masque").val())) - 2 &&
-      parseInt($("#host-register").val()) >=
+      parseInt($("#host-register").val()) >
         2 ** (32 - parseInt($("#masque").val()) - 1) - 2
     ) {
       $("#host-register-status").addClass("success");
