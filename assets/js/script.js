@@ -4,6 +4,7 @@ $(document).ready(function () {
   // Event if change value hosts wanted arrow & key
   $("#host-register").on("input", function () {
     updateHostsWanted()
+    findSmallMask()
   });
 
   // Event if change value mask arrow & key
@@ -195,6 +196,43 @@ $(document).ready(function () {
     });
   }
 });
+
+// Search smallest mask
+function findSmallMask() {
+  const hostRegister = parseInt($("#host-register").val());
+
+  if (hostRegister > 2147483646) $("#small-mask").html("Aucun masque possible")
+  else if (hostRegister > 1073741822) $("#small-mask").html("/1")
+  else if (hostRegister > 536870910) $("#small-mask").html("/2")
+  else if (hostRegister > 268435454) $("#small-mask").html("/3")
+  else if (hostRegister > 134217726) $("#small-mask").html("/4")
+  else if (hostRegister > 67108862) $("#small-mask").html("/5")
+  else if (hostRegister > 33554430) $("#small-mask").html("/6")
+  else if (hostRegister > 16777214) $("#small-mask").html("/7")
+  else if (hostRegister > 8388606) $("#small-mask").html("/8")
+  else if (hostRegister > 4194302) $("#small-mask").html("/9")
+  else if (hostRegister > 2097150) $("#small-mask").html("/10")
+  else if (hostRegister > 1048574) $("#small-mask").html("/11")
+  else if (hostRegister > 524286) $("#small-mask").html("/12")
+  else if (hostRegister > 262142) $("#small-mask").html("/13")
+  else if (hostRegister > 131070) $("#small-mask").html("/14")
+  else if (hostRegister > 65534) $("#small-mask").html("/15")
+  else if (hostRegister > 32766) $("#small-mask").html("/16")
+  else if (hostRegister > 16382) $("#small-mask").html("/17")
+  else if (hostRegister > 8190) $("#small-mask").html("/18")
+  else if (hostRegister > 4094) $("#small-mask").html("/19")
+  else if (hostRegister > 2046) $("#small-mask").html("/20")
+  else if (hostRegister > 1022) $("#small-mask").html("/21")
+  else if (hostRegister > 510) $("#small-mask").html("/22")
+  else if (hostRegister > 254) $("#small-mask").html("/23")
+  else if (hostRegister > 126) $("#small-mask").html("/24")
+  else if (hostRegister > 62) $("#small-mask").html("/25")
+  else if (hostRegister > 30) $("#small-mask").html("/26")
+  else if (hostRegister > 14) $("#small-mask").html("/27")
+  else if (hostRegister > 6) $("#small-mask").html("/28")
+  else if (hostRegister > 2) $("#small-mask").html("/29")
+  else $("#small-mask").html("/30")
+}
 
 function updateHostsWanted() {
   if (

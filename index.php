@@ -469,7 +469,11 @@
         <tr>
           <td class="noborder blank-cell" colspan="12"></td> 
           <td id="host-register-status" class="border-left-bold success" colspan="5">Hôtes souhaités</td> 
-          <td class="edit-area border-right-bold" colspan="4"><input class="bold" type="number" id="host-register" name="host-register" value="15230" min="1" max="2147483646"></td> 
+          <td class="edit-area border-right-bold" colspan="4"><input class="bold" type="number" id="host-register" name="host-register" value="15230" min="1" max="2147483646"></td>
+          <td class="noborder blank-cell" colspan="4"></td> 
+          <td colspan="5">Masque restreint</td>
+          <td class="noborder blank-cell"></td>
+          <td class="bold" id="small-mask" colspan="7">/18</td>
         </tr>
         <!-- Class address -->
         <tr>
