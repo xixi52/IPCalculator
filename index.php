@@ -457,7 +457,7 @@
           <td class="noborder blank-cell" colspan="4"></td> 
           <td colspan="5">Réseau suivant</td>
           <td class="noborder blank-cell"></td>
-          <td id="next-net" colspan="7">128.0.64.0</td>
+          <td class="bold" id="next-net" colspan="7">128.0.64.0</td>
         </tr>
         <!-- Host available -->
         <tr>
