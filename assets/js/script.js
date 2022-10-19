@@ -3,6 +3,9 @@ $(document).ready(function () {
 
   // Event if change value hosts wanted arrow & key
   $("#host-register").on("input", function () {
+    if (!$(this).val()) $(this).val(1);
+    else if ($(this).val() <= 1) $(this).val(1);
+    else if ($(this).val() >= 2147483646) $(this).val(2147483646);
     updateHostsWanted();
     findSmallMask();
   });
