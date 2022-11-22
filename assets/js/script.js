@@ -1,4 +1,12 @@
 $(document).ready(function () {
+
+  // ParseInt all values (00123 -> 128)
+  for (let i=1; i<=4; i++) {
+    $("#octet" + i + "-eq-dec").on("input", function () {
+     $(this).val(parseInt($(this).val(), 10));
+    });
+  }
+
   const bitValues = [128, 64, 32, 16, 8, 4, 2, 1];
 
   // Event if change value hosts wanted arrow & key
@@ -6,6 +14,7 @@ $(document).ready(function () {
     if (!$(this).val()) $(this).val(1);
     else if ($(this).val() <= 1) $(this).val(1);
     else if ($(this).val() >= 2147483646) $(this).val(2147483646);
+    $(this).val(parseInt($(this).val(), 10));
     updateHostsWanted();
     findSmallMask();
   });
@@ -15,6 +24,8 @@ $(document).ready(function () {
     if (!$(this).val()) $(this).val(1);
     else if ($(this).val() <= 1) $(this).val(1);
     else if ($(this).val() >= 31) $(this).val(31);
+
+    $(this).val(parseInt($(this).val(), 10));
 
     let octNet = [0, 0, 0, 0];
 
